@@ -1,24 +1,15 @@
 describe('JustBallzController', function(){
-  beforeEach(module('JustBallz', function($provide){
+  beforeEach(module('JustBallz'));
 
+  var $scope, ctrl;
+  var mockWindow = {};
+  beforeEach(inject(function(_$rootScope_, _$controller_) {
+      $scope = _$rootScope_.$new();
+      ctrl = _$controller_('JustBallzController', {$scope: $scope, $window: mockWindow});
   }));
-
-  var $controller;
-
-  beforeEach(inject(function(_$controller_){
-    $controller = _$controller_;
-    var scope = {};
-    var _window = {};
-    var ctrl = $controller('JustBallzController', {$scope: scope, $window: window1});
-  }));
-
-
 
     it('starts with the default view shown',function(){
-      console.log($window);
-      console.log($scope);
-      console.log(ctrl);
-      expect(scope.viewPane).toBeDefined();
+      expect($scope.viewPane).toEqual(1);
     });
 
     // describe('#connect', function() {
