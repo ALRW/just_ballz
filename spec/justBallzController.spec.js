@@ -2,7 +2,9 @@ describe('JustBallzController', function(){
   beforeEach(module('JustBallz'));
 
   var $scope, ctrl;
-  var mockWindow = {};
+  var mockWindow = {
+    connected: false
+  };
   beforeEach(inject(function(_$rootScope_, _$controller_) {
       $scope = _$rootScope_.$new();
       ctrl = _$controller_('JustBallzController', {$scope: $scope, $window: mockWindow});
@@ -10,6 +12,13 @@ describe('JustBallzController', function(){
 
     it('starts with the default view shown',function(){
       expect($scope.viewPane).toEqual(1);
+    });
+
+    describe('#setConnected', function(){
+      it('Sets Angular\'s connected variable from the window object', function(){
+        $scope.setConnected();
+        expect($scope.isConnected).toBeFalsy();
+      });
     });
 
     describe('#connect', function() {
@@ -23,7 +32,6 @@ describe('JustBallzController', function(){
        $scope.connect();
        expect($scope.watcher).toHaveBeenCalled();
      });
-
     });
 
     describe("#connected",function(){

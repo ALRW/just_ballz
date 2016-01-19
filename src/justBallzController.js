@@ -2,14 +2,14 @@ justBallz.controller('JustBallzController', ['$scope', '$window', function($scop
   $scope.viewPane = 1;
 
   $scope.$watch(function() {
-      return $window.connected;
+      return $window.isConnected;
     },
     function(n, o) {
       $scope.setConnected();
-      if ($scope.connected === true) {
+      if ($scope.isConnected === true) {
         $scope.viewPane = 4;
         $scope.checkStatus();
-      } else if ($scope.connected === 'not connecting') {
+      } else if ($scope.isConnected === 'not connecting') {
         $scope.viewPane = 2;
       }
     }
@@ -18,15 +18,15 @@ justBallz.controller('JustBallzController', ['$scope', '$window', function($scop
   $scope.watcher = function() {
     setTimeout(function() {
       $scope.$digest();
-      if ($scope.connected === false) {
-        $window.connected = "not connecting";
+      if ($scope.isConnected === false) {
+        $window.isConnected = "not connecting";
       }
       $scope.$digest();
     }, 15000);
   };
 
   $scope.setConnected = function() {
-    $scope.connected = $window.connected;
+    $scope.isConnected = $window.isConnected;
   };
 
   $scope.isInView = function(viewPane) {
@@ -57,7 +57,7 @@ justBallz.controller('JustBallzController', ['$scope', '$window', function($scop
       $scope.$digest();
       $scope.setConnected();
       setTimeout(function() {
-        if ($scope.connected === false) {
+        if ($scope.isConnected === false) {
           $scope.viewPane = 2;
         }
       }, 1000);
