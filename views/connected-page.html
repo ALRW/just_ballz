@@ -1,0 +1,67 @@
+<div ng-show="isInView(4)">
+
+  <form>
+    <div>
+        <h1>Your sphero is connected</h1>
+      <button class="btn btn-warning btn-med center-block" ng-click="disconnect()">Reset</button>
+  </div>
+</form>
+  <div class="container">
+    <h1>To Disconnect</h1>
+    <div id="image_wrapper" class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+      <div class="images_hz">
+        <div class="well">
+          <img src="../public/img/Disconnect.gif" alt="Disconnect">
+          <p> To disconnect the sphero, make a fist over the motion sensor</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<style>
+@import url(http://fonts.googleapis.com/css?family=Lato:100,400);
+  h1 {
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    color: #2D3047;
+  }
+p {
+  text-align: center;
+}
+gi
+  #image_wrapper {
+    width: 1200px;
+    position: center;
+  }
+  .well {
+    background-color: RGB(224, 255, 255);
+    width: 300px;
+    height: 300px;
+    margin: auto;
+    font-family: 'Lato', sans-serif;
+    color: #2D3047;
+    text-align: center;
+  }
+
+      .images_hz {
+      display: flex;
+      min-width: ;
+      min-height: ;
+      }
+      .images_hz img {
+        height: 100;
+        width: 100%;
+        margin: 0 5px;
+        overflow: scroll;
+        padding-bottom: 10px;
+      }
+      form {
+        position: relative;
+        width: 400px;
+        height: 120px;
+        margin: 20px auto;
+        padding-bottom: -50px;
+      }
+  </style>

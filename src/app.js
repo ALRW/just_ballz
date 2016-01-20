@@ -1,1 +1,1 @@
-var justBallz = angular.module('JustBallz', ['ngResource']); 
+var justBallz = angular.module('JustBallz', ['ngResource']);
