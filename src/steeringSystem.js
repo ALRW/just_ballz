@@ -11,7 +11,7 @@ var controller = new Leap.Controller();
 
 function handleRight(hand) {
   if (hand.grabStrength > 0.9) {
-    isConnected = false;
+    connected = false;
     orb.roll(0, 0);
     orb.disconnect(function() {});
   } else {
@@ -64,7 +64,7 @@ function calibrateSphero() {
     orb.setHeading(0);
     orb.setBackLed(0);
     orb.setStabilization(1);
-    isConnected = true;
+    connected = true;
   }, 5000);
 }
 
@@ -91,7 +91,7 @@ function listen() {
       for (var i = 0, len = frame.hands.length; i < len; i++) {
         hand = frame.hands[i];
         if (hand) {
-          if (hand.type == 'right' && isConnected === true) {
+          if (hand.type == 'right' && connected === true) {
             handleRight(hand);
           }
         }
@@ -128,7 +128,7 @@ function setName() {
 }
 
 function setConnected() {
-  isConnected = false;
+  connected = false;
 }
 
 function setColor() {
