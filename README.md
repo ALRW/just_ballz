@@ -10,8 +10,8 @@ This application is still in Alpha and as such there are a number of bugs presen
 
 Continuous Integration
 --------------------------
-Master: ![Master branch](https://travis-ci.org/ALRW/just_ballz.svg?branch=master)
-Development: ![Develop branch](https://travis-ci.org/ALRW/just_ballz.svg?branch=develop)
+- Master: ![Master branch](https://travis-ci.org/ALRW/just_ballz.svg?branch=master)
+- Development: ![Develop branch](https://travis-ci.org/ALRW/just_ballz.svg?branch=develop)
 
 Download & Installation
 -----------------------
@@ -57,3 +57,5 @@ How To Use
 Contributions
 -------------
 Contributions and issues are very welcome. To contribute simply fork this directory make your changes and then open a pull request.
+
+NB - Developers: Node modules are included that contain a specially compiled version of SerialPort that interfaces directly with Node Webkit 0.8.6's Application Binary Interface.
