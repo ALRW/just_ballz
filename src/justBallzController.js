@@ -1,4 +1,4 @@
-justBallz.controller('JustBallzController', ['$scope', '$window', function($scope, $window) {
+justBallz.controller('JustBallzController', ['$scope', '$window', '$timeout', function($scope, $window, $timeout) {
   $scope.viewPane = 1;
 
   $scope.$watch(function() {
@@ -16,10 +16,11 @@ justBallz.controller('JustBallzController', ['$scope', '$window', function($scop
   );
 
   $scope.watcher = function() {
-    setTimeout(function() {
+    $timeout(function() {
       $scope.$digest();
       if ($scope.isConnected === false) {
         $window.isConnected = "not connecting";
+        $scope.setConnected();
       }
       $scope.$digest();
     }, 15000);
@@ -53,10 +54,10 @@ justBallz.controller('JustBallzController', ['$scope', '$window', function($scop
   };
 
   $scope.checkStatus = function() {
-    setTimeout(function() {
+    $timeout(function() {
       $scope.$digest();
       $scope.setConnected();
-      setTimeout(function() {
+      $timeout(function() {
         if ($scope.isConnected === false) {
           $scope.viewPane = 2;
         }

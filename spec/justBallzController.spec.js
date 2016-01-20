@@ -1,17 +1,30 @@
 describe('JustBallzController', function(){
   beforeEach(module('JustBallz'));
 
-  var $scope, ctrl;
+  var $scope, $timeout, ctrl;
   var mockWindow = {
-    connected: false
+    isConnected: false
   };
-  beforeEach(inject(function(_$rootScope_, _$controller_) {
+  beforeEach(inject(function(_$rootScope_, _$controller_, _$timeout_) {
       $scope = _$rootScope_.$new();
-      ctrl = _$controller_('JustBallzController', {$scope: $scope, $window: mockWindow});
+      $timeout = _$timeout_;
+      ctrl = _$controller_('JustBallzController', {$scope: $scope, $window: mockWindow, $timeout: $timeout});
   }));
 
     it('starts with the default view shown',function(){
       expect($scope.viewPane).toEqual(1);
+    });
+
+    describe('#watcher', function(){
+      it('checks the isConnected global variable and updates it if no connection is made', function(){
+        $scope.watcher();
+        spyOn($scope, '$digest');
+        spyOn($scope, 'setConnected');
+        $timeout.flush();
+        expect($scope.$digest).toHaveBeenCalled();
+        expect($scope.isConnected).toBeFalsy();
+        expect($scope.setConnected).toHaveBeenCalled();
+      });
     });
 
     describe('#setConnected', function(){
