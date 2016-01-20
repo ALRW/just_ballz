@@ -1,0 +1,80 @@
+<div ng-show="isInView(2)">
+  <body>
+    <form>
+      <h1>Welcome {{orbName}}!</h1>
+        <div>
+          <button onclick="startGame()" class="btn btn-warning btn-med center-block" ng-click="connect()">Connect to your Sphero</button>
+        </div>
+      </form>
+      <div class="container">
+          <h1> Instructions for use</h1>
+            <div id="image_wrapper" class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="images_hz">
+                <div class="well">
+                  <img src="../public/img/Calibrate.gif" alt="Calibrate">
+                <p> Calibrate your Sphero by ensuring the blue LED is turned towards you</p>
+                </div>
+
+                <div class="well">
+                  <img src="../public/img/Position.gif" alt="Position">
+                <p> Position your hand above the motion sensor at a minimum height of 20cm</p>
+                </div>
+
+                <div class="well">
+                  <img src="../public/img/Move.gif" alt="Move">
+                <p> The sphero moves in the direction calulated relative to where your hand is over the motion sensor. To pause the sphero, hover center of palm directly above the motion sensor. </p>
+                </div>
+
+                <div class="well">
+                  <img src="../public/img/Disconnect.gif" alt="Disconnect">
+                <p> To disconnect the sphero, make a fist over the motion sensor</p>
+              </div>
+      </div>
+        </div>
+      </div>
+
+  </body>
+
+<style>
+@import url(http://fonts.googleapis.com/css?family=Lato:100,400);
+  h1 {
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    color: #2D3047;
+  }
+p {
+  text-align: center;
+}
+  form {
+    position: relative;
+    width: 250px;
+    height: 120px;
+    margin: 20px auto;
+  }
+  #image_wrapper {
+    width: 1200px;
+    text-align: center;
+  }
+  .well {
+    background-color: RGB(224, 255, 255);
+    width: 300px;
+    height: 300px;
+    margin: 10px 10px;
+    font-family: 'Lato', sans-serif;
+    color: #2D3047;
+    text-align: center;
+  }
+      .images_hz {
+      width: 1100px;
+      display: flex;
+      min-width: ;
+      min-height: ;
+      }
+      .images_hz img {
+        height: 100;
+        width: 100%;
+        margin: 0 5px;
+        overflow: scroll;
+        padding-bottom: 10px;
+      }
+  </style>

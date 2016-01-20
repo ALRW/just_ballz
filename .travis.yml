@@ -6,4 +6,5 @@ script: node_modules/karma/bin/karma start karma.conf.js --single-run
 before_script:
   - npm install
 before_install:
-- npm install -g grunt-cli
+  - npm install -g bower
+  - bower install

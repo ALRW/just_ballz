@@ -1,20 +1,46 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="JustBallz">
+
 <head>
   <meta charset="UTF-8">
   <title>Just Ballz</title>
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link href='http://fonts.googleapis.com/css?family=Just+Another+Hand' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
     <script src= "bower_components/angular/angular.js"></script>
     <script src= "bower_components/angular-resource/angular-resource.js"></script>
     <script src= "src/app.js"></script>
-    <script src= "src/justBallzController"></script>
+    <script src= "src/justBallzController.js"></script>
+    <script src= "src/welcomeDirective.js"></script>
+    <script src= "src/connectDirective.js"></script>
+    <script src= "src/connectingDirective.js"></script>
+    <script src= "src/connectedDirective.js"></script>
+    <script src= "src/steeringSystem.js"></script>
 </head>
-<body ng-controller="justBallzController as orbCtrl">
-  <div class="orbConnection">
-    <form>
-      <input type="text">
-      <button></button>
-    </form>
-  </div>
+  <body ng-controller="JustBallzController">
 
-</body>
+    <welcome-page></welcome-page>
+
+    <connect-page></connect-page>
+
+    <connecting-page></connecting-page>
+
+    <connected-page></connected-page>
+  </body>
+  <style>
+  body {
+    margin: 0;
+    background-color: #FBFBF2;
+  }
+  h2 {
+    background-color: #5AB1BB;
+    font-family:'Cookie', Helvetica, sans-serif;
+    font-size: 90px;
+    color: #2D3047;
+    text-align: center;
+    padding:0.50em 0;
+    margin-top:0;
+  }
+</style>
 </html>

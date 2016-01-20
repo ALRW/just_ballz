@@ -26,7 +26,7 @@ module.exports = function(config) {
 
     // list of files to exclude
     exclude: [
-      'src/steering_system.js'
+      'src/steeringSystem.js'
     ],
 
 
