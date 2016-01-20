@@ -35,7 +35,7 @@ justBallz.controller('JustBallzController', ['$scope', '$window', '$timeout', fu
   };
 
   $scope.submit = function() {
-    $scope.orbName = $scope.name;
+    $scope.setName();
     $scope.viewPane = 2;
     $scope.setConnected();
   };
@@ -65,4 +65,7 @@ justBallz.controller('JustBallzController', ['$scope', '$window', '$timeout', fu
     }, 10000);
   };
 
+  $scope.setName = function(){
+    $scope.orbName = $scope.name;
+  };
 }]);

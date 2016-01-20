@@ -15,6 +15,25 @@ describe('JustBallzController', function(){
       expect($scope.viewPane).toEqual(1);
     });
 
+    describe('#checkStatus', function(){
+      it('checks the status of the applications connection to the Sphero', function(){
+        spyOn($scope, '$digest');
+        spyOn($scope, 'setConnected');
+        $scope.checkStatus();
+        $timeout.flush();
+        expect($scope.$digest).toHaveBeenCalled();
+        expect($scope.setConnected).toHaveBeenCalled();
+      });
+
+      it('Changes the view if the Sphero is not connected', function(){
+        $scope.checkStatus();
+        $timeout.flush();
+        $timeout.flush();
+        expect($scope.isConnected).toEqual(false);
+        expect($scope.viewPane).toEqual(2);
+        });
+    });
+
     describe('#watcher', function(){
       it('checks the isConnected global variable and updates it if no connection is made', function(){
         $scope.watcher();
@@ -68,6 +87,25 @@ describe('JustBallzController', function(){
 
       it('returns false when the given viewPane is not displayed', function(){
         expect($scope.isInView(3)).toBeFalsy();
+      });
+    });
+
+    describe('#submit', function(){
+      it('submits the details entered by the user', function(){
+        spyOn($scope, 'setName');
+        spyOn($scope, 'setConnected');
+        $scope.submit();
+        expect($scope.setName).toHaveBeenCalled();
+        expect($scope.setConnected).toHaveBeenCalled();
+        expect($scope.viewPane).toEqual(2);
+      });
+    });
+
+    describe('#setName', function(){
+      it('sets the orbName used in the applications', function(){
+        $scope.name = 'WOO';
+        $scope.setName();
+        expect($scope.orbName).toEqual('WOO');
       });
     });
 });
