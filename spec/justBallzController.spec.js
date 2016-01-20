@@ -2,17 +2,42 @@ describe('JustBallzController', function(){
   beforeEach(module('JustBallz'));
 
   var $scope, $timeout, ctrl;
-  var mockWindow = {
+  var $window = {
     isConnected: false
   };
   beforeEach(inject(function(_$rootScope_, _$controller_, _$timeout_) {
       $scope = _$rootScope_.$new();
       $timeout = _$timeout_;
-      ctrl = _$controller_('JustBallzController', {$scope: $scope, $window: mockWindow, $timeout: $timeout});
+      ctrl = _$controller_('JustBallzController', {$scope: $scope, $window: $window, $timeout: $timeout});
   }));
+
+  afterEach(function(){
+    $window.isConnected = false;
+  });
 
     it('starts with the default view shown',function(){
       expect($scope.viewPane).toEqual(1);
+    });
+
+    it('watches for changes to the global isConnected and updates the controller variable', function(){
+      $window.isConnected = true;
+      spyOn($scope, 'setConnected');
+      $scope.$digest();
+      expect($scope.setConnected).toHaveBeenCalled();
+    });
+
+    it('When connected, changes the view and checks status', function(){
+      $window.isConnected = true;
+      spyOn($scope, 'checkStatus');
+      $scope.$digest();
+      expect($scope.viewPane).toEqual(4);
+      expect($scope.checkStatus).toHaveBeenCalled();
+    });
+
+    it('reverts the view when the Sphero fails to connected', function(){
+      $window.isConnected = "not connecting";
+      $scope.$digest();
+      expect($scope.viewPane).toEqual(2);
     });
 
     describe('#checkStatus', function(){
