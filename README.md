@@ -24,6 +24,11 @@ You can download the Alpha version of the App [here](https://www.dropbox.com/s/d
 
 How To Use
 ----------
+
+- For a full App walkthrough click below to view our YouTube tutorial.
+
+[![YouTube Tutorial](readmeImages/JustBallz-Voiceover.png)](https://www.youtube.com/watch?v=RJ_ppMJ8i_I)
+
 - Once the app has been successully downloaded it can be run from any location by simply double clicking on the Just Ballz icon. This will open the apps landing page as shown below:
 
 ![landingPage](readmeImages/landingPage.png)
